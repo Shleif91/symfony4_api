@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements UserInterface, \Serializable
+class User implements AdvancedUserInterface, \Serializable
 {
     /**
      * @ORM\Column(type="integer")
@@ -88,12 +88,33 @@ class User implements UserInterface, \Serializable
         //
     }
 
+    public function isAccountNonExpired(): bool
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked(): bool
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired(): bool
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return $this->isActive;
+    }
+
     public function serialize()
     {
         return serialize([
             $this->id,
             $this->username,
             $this->password,
+            $this->isActive,
         ]);
     }
 
@@ -102,7 +123,8 @@ class User implements UserInterface, \Serializable
         list (
             $this->id,
             $this->username,
-            $this->password
+            $this->password,
+            $this->isActive
         ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 }
