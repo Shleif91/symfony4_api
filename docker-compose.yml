@@ -1,0 +1,37 @@
+version: '2'
+services:
+  nginx:
+    build: ./docker/nginx
+    depends_on:
+      - php7
+      - db
+    volumes:
+      - ./app:/var/www
+    ports:
+      - "80:80"
+  php7:
+    build: ./docker/php7
+    ports:
+      - "9000"
+    volumes:
+      - ./app:/var/www
+    working_dir: /var/www
+    environment: 
+      XDEBUG_CONFIG: remote_host=192.168.50.75 #Подставить свой удаленный IP
+      PHP_IDE_CONFIG: "serverName=docker"
+      DATABASE_NAME: testing
+      DATABASE_USER: root
+      DATABASE_PASSWORD: root
+  db:
+    container_name: testing
+    build: ./docker/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: testing
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./docker/mysql/mysql-data:/var/lib/mysql
+      - ./docker/mysql/dumps:/docker-entrypoint-initdb.d
