@@ -11,6 +11,30 @@
             "ref": "b50f8aa321cc40c380dda7605aa5cef66f476802"
         }
     },
+    "beberlei/assert": {
+        "version": "v2.9.5"
+    },
+    "behat/behat": {
+        "version": "v3.4.3"
+    },
+    "behat/gherkin": {
+        "version": "v4.5.1"
+    },
+    "behat/symfony2-extension": {
+        "version": "2.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.1",
+            "ref": "6b63fb76d3bb2dd16098f12adf6d6ca844e21862"
+        }
+    },
+    "behat/transliterator": {
+        "version": "v1.2.0"
+    },
+    "container-interop/container-interop": {
+        "version": "1.2.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -80,6 +104,21 @@
     "doctrine/orm": {
         "version": "v2.6.1"
     },
+    "firebase/php-jwt": {
+        "version": "v5.0.0"
+    },
+    "guzzlehttp/guzzle": {
+        "version": "6.3.3"
+    },
+    "guzzlehttp/promises": {
+        "version": "v1.3.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.4.2"
+    },
+    "imbo/behat-api-extension": {
+        "version": "v2.1.0"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -113,6 +152,9 @@
     "psr/container": {
         "version": "1.0.0"
     },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/log": {
         "version": "1.0.2"
     },
@@ -124,6 +166,9 @@
     },
     "symfony/cache": {
         "version": "v4.0.9"
+    },
+    "symfony/class-loader": {
+        "version": "v3.4.9"
     },
     "symfony/config": {
         "version": "v4.0.9"
