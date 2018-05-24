@@ -8,7 +8,7 @@ Feature:
       """
       {
         "username": "Testuser",
-        "password": "123456",
+        "plainPassword": "123456",
         "email": "testuser@example.com"
       }
       """
